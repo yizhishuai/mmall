@@ -11,17 +11,17 @@ Java带你从0到上线开发企业级电商项目
 https://coding.imooc.com/class/96.html
 
 - 一期项目git仓库
-https://git1.imooc.com/Project/coding-96
+https://git.imooc.com/Project/coding-96
 
 ### 二期项目
 Java企业级电商项目架构演进之路 Tomcat集群与Redis分布式
 https://coding.imooc.com/class/162.html
 
 - 在二期git仓库中V1.0的分支是一期的代码
-https://git1.imooc.com/Project/coding-162/src/V1.0
+https://git.imooc.com/Project/coding-162/src/V1.0
 
 - 二期的项目代码在master分支上
-https://git1.imooc.com/Project/coding-162/src/master
+https://git.imooc.com/Project/coding-162/src/master
 
 ### 免费课程
 SpringMVC数据绑定 
