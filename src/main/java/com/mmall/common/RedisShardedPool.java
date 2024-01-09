@@ -49,6 +49,8 @@ public class RedisShardedPool {
 
         JedisShardInfo info2 = new JedisShardInfo(redis2Ip,redis2Port,1000*2);
 
+        // 这里是两个redis的连接信息
+        // 初始化ShardedJedisPool
         List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>(2);
 
         jedisShardInfoList.add(info1);
@@ -78,6 +80,7 @@ public class RedisShardedPool {
 
 
     public static void main(String[] args) {
+        // ShardedJedisPool的
         ShardedJedis jedis = pool.getResource();
 
         for(int i =0;i<10;i++){
