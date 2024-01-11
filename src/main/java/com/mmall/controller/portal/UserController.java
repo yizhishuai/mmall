@@ -8,6 +8,7 @@ import com.mmall.service.IUserService;
 import com.mmall.util.CookieUtil;
 import com.mmall.util.JsonUtil;
 import com.mmall.util.RedisShardedPoolUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by geely
  */
+@Slf4j
 @Controller
 @RequestMapping("/user/")
 public class UserController {
@@ -83,12 +85,13 @@ public class UserController {
     public ServerResponse<User> getUserInfo(HttpServletRequest httpServletRequest){
 
         String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+        log.info("loginToken:{},是存在的",loginToken);
         if(StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登录,无法获取当前用户的信息");
         }
         String userJsonStr = RedisShardedPoolUtil.get(loginToken);
         User user = JsonUtil.string2Obj(userJsonStr,User.class);
-
+        log.info("userJsonStr:{}",userJsonStr);
         if(user != null){
             return ServerResponse.createBySuccess(user);
         }

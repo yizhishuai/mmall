@@ -70,6 +70,7 @@ public class AuthorityInterceptor implements HandlerInterceptor{
         String loginToken = CookieUtil.readLoginToken(request);
         if(StringUtils.isNotEmpty(loginToken)){
             String userJsonStr = RedisShardedPoolUtil.get(loginToken);
+            log.info("从redis中获取到的用户信息:{}",userJsonStr);
             user = JsonUtil.string2Obj(userJsonStr,User.class);
         }
 
